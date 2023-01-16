@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigurationImporter.Interfaces\ConfigurationImporter.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

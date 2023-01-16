@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ConfigurationImporter.Service.Importers
 {
-    public class CsvConfigurationImporter : IConfigurationImporter
+    public class CsvConfigurationParser : IConfigurationParser
     {
-        public IConfiguration Import(string filePath)
+        public IConfiguration Parse(string filePath)
         {
             throw new NotImplementedException();
         }
