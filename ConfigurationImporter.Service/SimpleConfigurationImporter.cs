@@ -1,4 +1,5 @@
-﻿using ConfigurationImporter.Interfaces;
+﻿using ConfigurationImporter.Entities;
+using ConfigurationImporter.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,36 @@ namespace ConfigurationImporter.Service
 
         public IList<IConfiguration> Import(string path)
         {
-            throw new NotImplementedException();
+            try
+            {
+                ParserType parserType = GetParserType(path);
+                IConfigurationParser parser = parserResolver.Invoke(parserType);
+                return parser.Parse(path);
+            }
+            catch(GetConfigParserTypeException ex)
+            {
+                //TODO обработка
+                throw new NotImplementedException();
+            }
+            catch(GetConfigParserException ex)
+            {
+                //TODO обработка
+                throw new NotImplementedException();
+            }
+        }
+
+
+        private ParserType GetParserType(string path)
+        {
+            
+#warning В рамках задания определение типа сделано по-простому через разрешение файла. В случае, если для одного разрешения файла предусматривается более одного парсера, следует изменить метод на анализ структуры файла.
+            string extension = Path.GetExtension(path);
+            return extension switch
+            {
+                ".csv" => ParserType.SimpleCsv,
+                ".xml" => ParserType.SimpleXml,
+                _ => throw new GetConfigParserTypeException($"Cant resolve parser type for path = {path}"),
+            };
         }
     }
 }

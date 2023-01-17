@@ -9,7 +9,7 @@ namespace ConfigurationImporter.Service.Importers
 {
     public class CsvConfigurationParser : IConfigurationParser
     {
-        public IConfiguration Parse(string filePath)
+        public IList<IConfiguration> Parse(string filePath)
         {
             throw new NotImplementedException();
         }
