@@ -46,7 +46,8 @@ namespace ConfigurationImporter
                             case ParserType.SimpleXml:
                                 return (IConfigurationParser)serviceProvider
                                 .GetService(typeof(XmlConfigurationParser));
-                            default: throw new GetConfigParserException($"Cant resolve parser for type = {parserType}");         
+                            default: 
+                                throw new GetConfigParserException($"Cant resolve parser for type = {parserType}");         
                         }
                     }
                 });

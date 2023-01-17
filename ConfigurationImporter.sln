@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationImporter", "ConfigurationImporter\ConfigurationImporter.csproj", "{4BCF330D-D6A8-48E7-A9C5-BE80AF26A862}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationImporter", "ConfigurationImporter\ConfigurationImporter.csproj", "{4BCF330D-D6A8-48E7-A9C5-BE80AF26A862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationImporter.Interfaces", "ConfigurationImporter.Interfaces\ConfigurationImporter.Interfaces.csproj", "{662CD3DE-B423-4AFD-B297-3DF6C96AC519}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationImporter.Interfaces", "ConfigurationImporter.Interfaces\ConfigurationImporter.Interfaces.csproj", "{662CD3DE-B423-4AFD-B297-3DF6C96AC519}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationImporter.Entities", "ConfigurationImporter.Entities\ConfigurationImporter.Entities.csproj", "{B4D1B038-20BC-4E8E-93D6-9D3BE9C358B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationImporter.Entities", "ConfigurationImporter.Entities\ConfigurationImporter.Entities.csproj", "{B4D1B038-20BC-4E8E-93D6-9D3BE9C358B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationImporter.Service", "ConfigurationImporter.Service\ConfigurationImporter.Service.csproj", "{98F59D6C-8550-4DE8-997C-19CA4F0E49AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationImporter.Service", "ConfigurationImporter.Service\ConfigurationImporter.Service.csproj", "{98F59D6C-8550-4DE8-997C-19CA4F0E49AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationImporter.Tests", "ConfigurationImporter.Tests\ConfigurationImporter.Tests.csproj", "{0AE51289-AF43-4D61-A5A5-24B2A5BC9D1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{98F59D6C-8550-4DE8-997C-19CA4F0E49AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98F59D6C-8550-4DE8-997C-19CA4F0E49AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98F59D6C-8550-4DE8-997C-19CA4F0E49AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE51289-AF43-4D61-A5A5-24B2A5BC9D1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE51289-AF43-4D61-A5A5-24B2A5BC9D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE51289-AF43-4D61-A5A5-24B2A5BC9D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE51289-AF43-4D61-A5A5-24B2A5BC9D1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
