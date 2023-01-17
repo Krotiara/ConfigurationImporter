@@ -28,20 +28,18 @@ namespace ConfigurationImporter.Service
                 IConfigurationParser parser = parserResolver.Invoke(parserType);
                 return parser.Parse(path);
             }
-            catch(GetConfigParserTypeException ex)
+            catch(Exception ex) when (
+                ex is GetConfigParserTypeException ||
+                ex is GetConfigParserException ||
+                ex is ParseConfigException)
             {
-                //TODO обработка
-                throw new NotImplementedException();
+                throw new ImportConfigurationsException(
+                    $"Ошибка загрузки файла конфигурации {path}", ex);
             }
-            catch(GetConfigParserException ex)
+            catch(Exception ex)
             {
-                //TODO обработка
-                throw new NotImplementedException();
-            }
-            catch(ParseConfigException ex)
-            {
-                //TODO обработка
-                throw new NotImplementedException();
+                throw new ImportConfigurationsException(
+                    $"Непредвиденная ошибка загрузки файла конфигурации {path}", ex);
             }
         }
 

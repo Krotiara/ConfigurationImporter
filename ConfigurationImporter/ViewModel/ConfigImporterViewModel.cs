@@ -1,4 +1,5 @@
 ﻿using BindingCommands;
+using ConfigurationImporter.Entities;
 using ConfigurationImporter.Interfaces;
 using ConfigurationImporter.Model;
 using Microsoft.Win32;
@@ -9,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ConfigurationImporter.ViewModel
 {
@@ -27,14 +29,29 @@ namespace ConfigurationImporter.ViewModel
 
         public RelayCommand ImportConfigsCommand => new RelayCommand(_ =>
         {
-            //TOODO обработка ошибок
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
+            try
+            {  
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    //TODO валидацию пути
+                    IList<IConfiguration> configs = configurationImporter.Import(openFileDialog.FileName);
+                    Configurations.Clear();
+                    Configurations.AddRange(configs);
+                }
+            }
+            catch(ImportConfigurationsException ex)
             {
-                //TODO валидацию пути
-                IList<IConfiguration> configs = configurationImporter.Import(openFileDialog.FileName);
-                Configurations.Clear();
-                Configurations.AddRange(configs);
+                string message = ex.InnerException != null ? 
+                    $"{ex.Message}: {ex.InnerException.Message}." : 
+                    $"{ex.Message}";
+                MessageBox.Show(message, 
+                    "Ошибка загрузки файла конфигураций", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                    "Непредвиденная ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         });
     }
