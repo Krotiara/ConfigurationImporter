@@ -47,8 +47,6 @@ namespace ConfigurationImporter
                         }
                     }
                 });
-
-
             })
             .Build();
         }
