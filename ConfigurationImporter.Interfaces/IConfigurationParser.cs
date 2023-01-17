@@ -8,6 +8,6 @@ namespace ConfigurationImporter.Interfaces
 {
     public interface IConfigurationParser
     {
-        public IConfiguration Parse(string filePath);
+        public IList<IConfiguration> Parse(string filePath);
     }
 }

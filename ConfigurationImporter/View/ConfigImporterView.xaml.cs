@@ -23,6 +23,8 @@ namespace ConfigurationImporter.View
         public ConfigImporterView(ConfigImporterViewModel viewModel)
         {
             DataContext = viewModel;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Focus();
             InitializeComponent();
         }
     }
