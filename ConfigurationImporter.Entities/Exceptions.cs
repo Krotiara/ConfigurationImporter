@@ -16,4 +16,12 @@ namespace ConfigurationImporter.Entities
     {
         public GetConfigParserException(string message) : base(message) { }
     }
+
+
+    public class ParseConfigException : Exception
+    {
+        public ParseConfigException(string message) : base(message) { }
+
+        public ParseConfigException(string message, Exception innerException) : base(message, innerException) { }
+    }
 }
