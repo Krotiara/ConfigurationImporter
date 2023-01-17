@@ -38,6 +38,11 @@ namespace ConfigurationImporter.Service
                 //TODO обработка
                 throw new NotImplementedException();
             }
+            catch(ParseConfigException ex)
+            {
+                //TODO обработка
+                throw new NotImplementedException();
+            }
         }
 
 
