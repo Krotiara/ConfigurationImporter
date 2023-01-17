@@ -11,4 +11,10 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigurationImporter.Entities\ConfigurationImporter.Entities.csproj" />
+    <ProjectReference Include="..\ConfigurationImporter.Interfaces\ConfigurationImporter.Interfaces.csproj" />
+    <ProjectReference Include="..\ConfigurationImporter.Service\ConfigurationImporter.Service.csproj" />
+  </ItemGroup>
+
 </Project>

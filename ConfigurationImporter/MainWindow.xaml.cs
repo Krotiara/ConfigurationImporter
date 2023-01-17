@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConfigurationImporter.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace ConfigurationImporter
     public partial class MainWindow : Window
     {
         public MainWindow()
-        {
+        {      
             InitializeComponent();
         }
     }
