@@ -1,0 +1,32 @@
+﻿<Window x:Class="ConfigurationImporter.View.ConfigImporterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConfigurationImporter.View"
+        mc:Ignorable="d"
+        Title="ConfigImporterView" Height="300" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.1*" MaxHeight="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" x:Name="configs" 
+                  AutoGenerateColumns="False"
+                  ScrollViewer.CanContentScroll="True"
+                  ItemsSource="{Binding Configurations, Mode=OneWay, 
+                                NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                  HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" 
+                                    Binding="{Binding Name}" Header="Имя"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" 
+                                    Binding="{Binding Description}" Header="Описание"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="1" x:Name="importButton" 
+                Command="{Binding ImportConfigsCommand}" 
+                Content="Импорт"
+                HorizontalAlignment="Right"></Button>
+    </Grid>
+</Window>

@@ -2,6 +2,8 @@
 using ConfigurationImporter.Interfaces;
 using ConfigurationImporter.Service;
 using ConfigurationImporter.Service.Importers;
+using ConfigurationImporter.View;
+using ConfigurationImporter.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -26,7 +28,8 @@ namespace ConfigurationImporter
             host = Host.CreateDefaultBuilder()
             .ConfigureServices((services) =>
             {
-                services.AddSingleton<MainWindow>();
+                services.AddSingleton<ConfigImporterView>();
+                services.AddSingleton<ConfigImporterViewModel>();
                 services.AddTransient<IConfiguration, Configuration>();
                 services.AddTransient<IConfigurationImporter, SimpleConfigurationImporter>();
                 services.AddTransient<CsvConfigurationParser>();
@@ -56,7 +59,7 @@ namespace ConfigurationImporter
         {
             host.Start();
 
-            MainWindow = host.Services.GetRequiredService<MainWindow>();
+            MainWindow = host.Services.GetRequiredService<ConfigImporterView>();
             MainWindow.Show();
 
             base.OnStartup(e);
