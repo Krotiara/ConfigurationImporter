@@ -8,6 +8,6 @@ namespace ConfigurationImporter.Interfaces
 {
     public interface IConfigurationImporter
     {
-        public IConfiguration Import(string path);
+        public IList<IConfiguration> Import(string path);
     }
 }
