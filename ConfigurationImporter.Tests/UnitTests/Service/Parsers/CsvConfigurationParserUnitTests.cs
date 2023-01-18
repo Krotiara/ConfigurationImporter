@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ConfigurationImporter.Entities;
+using ConfigurationImporter.Interfaces;
+using ConfigurationImporter.Service.Importers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,30 +11,41 @@ namespace ConfigurationImporter.Tests.UnitTests.Service.Parsers
 {
     public class CsvConfigurationParserUnitTests
     {
+
+        private readonly string testFilesRoot =
+           Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+
+        private CsvConfigurationParser parser;
+
+
         public CsvConfigurationParserUnitTests()
         {
-
+            parser = new CsvConfigurationParser();
         }
 
 
         [Fact]
         public void ParseCorrectFileMustReturnConfigs()
         {
-            throw new NotImplementedException();
+            string testFile = Path.Combine(testFilesRoot, "TestFiles/correct.csv");
+            IList<IConfiguration> result = parser.Parse(testFile);
+            Assert.NotEmpty(result);
         }
 
 
         [Fact]
         public void ParseFormatBrokenFileMustThrow()
         {
-            throw new NotImplementedException();
+            string testFile = Path.Combine(testFilesRoot, "TestFiles/breakFormat.csv");
+            Assert.Throws<ParseConfigException>(() => parser.Parse(testFile));
         }
 
 
         [Fact]
         public void ParseEmptyFileMustThrow()
         {
-            throw new NotImplementedException();
+            string testFile = Path.Combine(testFilesRoot, "TestFiles/empty.csv");
+            Assert.Throws<ParseConfigException>(() => parser.Parse(testFile));
         }
     }
 }

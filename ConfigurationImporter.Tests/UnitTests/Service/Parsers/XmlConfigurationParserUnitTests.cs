@@ -8,6 +8,10 @@ namespace ConfigurationImporter.Tests.UnitTests.Service.Parsers
 {
     public class XmlConfigurationParserUnitTests
     {
+        private readonly string testFilesRoot =
+          Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+
+
         public XmlConfigurationParserUnitTests()
         {
 
